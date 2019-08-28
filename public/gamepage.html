@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Sunshare - Tableau de bord</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="//unpkg.com/@feathersjs/client@^3.0.0/dist/feathers.js"></script>
+  <script src="//unpkg.com/socket.io-client@1.7.3/dist/socket.io.js"></script>
+  <script src="js/api.js"></script>
+
+  <script type="text/javascript">
+      const user = async ()=> {
+          await apiHandler.isAuthenticated();
+          window.user = await apiHandler.feathers.get('user');
+
+          if (!window.user) {
+              window.location.replace("/login.html");
+          }
+
+          $('.currentUser').prepend("<span>" + window.user["firstName"] + " " + window.user["lastName"] + "</span>");
+      }
+      user();
+  </script>
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex bg-secondary" href="index.html">
+        Sunshare
+        <img id="logoSideBar" src="img/sunshare_logo.png" alt="logo Sunshare">
+      </a>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="index.html">
+          <i class="fas fa-chart-line"></i>
+          <span>Tableau de bord</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#">
+          <i class="fas fa-comments"></i>
+          <span>Chat</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#">
+          <i class="fas fa-life-ring"></i>
+          <span>Centre d'aide</span>
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link collapsed" href="gamepage.html">
+          <i class="fas fa-gamepad"></i>
+          <span>Jeu</span>
+        </a>
+      </li>
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <div class="row" style="margin-top: 40px;">
+        <div class="col-xl-8 col-lg-7 mb-4">
+          <div class="card">
+            <div class="card-header shadow mb-4">
+              <h6 class="m-0 font-weight-bold text-primary">Podium</h6>
+            </div>
+            <div class="card-body">
+              <table class="table table-bordered" width="100%" cellspacing="0">
+                <tr>
+                  <th> Nom </th>
+                  <th> Score </th>
+                </tr>
+                <tbody>
+                  <tr>
+                    <td>Jean Dujardin</td>
+                    <td>546</td>
+                  </tr>
+                  <tr>
+                    <td>Jean Dujardin</td>
+                    <td>546</td>
+                  </tr>
+                  <tr>
+                    <td>Jean Dujardin</td>
+                    <td>546</td>
+                  </tr>
+                  <tr>
+                    <td>Jean Dujardin</td>
+                    <td>546</td>
+                  </tr>
+                  <tr>
+                      <td>Jean Dujardin</td>
+                      <td>546</td>
+                    </tr>
+                    <tr>
+                      <td>Jean Dujardin</td>
+                      <td>546</td>
+                    </tr>
+                    <tr>
+                      <td>Jean Dujardin</td>
+                      <td>546</td>
+                    </tr>
+                    <tr>
+                      <td>Jean Dujardin</td>
+                      <td>546</td>
+                    </tr>
+                    <tr>
+                        <td>Jean Dujardin</td>
+                        <td>546</td>
+                      </tr>
+                      <tr>
+                        <td>Jean Dujardin</td>
+                        <td>546</td>
+                      </tr>
+                      <tr>
+                        <td>Jean Dujardin</td>
+                        <td>546</td>
+                      </tr>
+                      <tr>
+                        <td>Jean Dujardin</td>
+                        <td>546</td>
+                      </tr>
+                </tbody>
+              </table>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-5">
+
+            <!-- Earnings (Monthly) Card Example -->
+
+            <h6>Votre score</h6>
+            <div class="card border-left-success shadow h-10 py-2">
+              <div class="card-body">
+                <div class="row no-gutters ">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-violet text-uppercase mb-1">Votre score</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">$7Kwh</div>
+                  </div>
+                  <div class="col-auto">
+                    <img src="img/barchart1.svg"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          <!-- Earnings (Monthly) Card Example -->
+            <div class=" card border-left-primary shadow h-10 py-2">
+              <div class="card-body">
+                <div class="row no-gutters ">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-violet text-uppercase mb-1">Pourcentage d'autoconsommation</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">35%</div>
+                  </div>
+                  <div class="col-auto">
+                    <img src="img/barchart2.svg"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          <!-- Earnings (Monthly) Card Example -->
+            <div class="card border-left-info shadow h-10 py-2">
+              <div class="card-body">
+                <div class="row no-gutters">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-violet text-uppercase mb-1">Injection</div>
+                    <div class="row no-gutters align-items-center">
+                      <div class="col-auto">
+                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">47Kwh</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <img src="img/barchart3.svg"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h6 style="margin-top: 40px;">Par équipe</h6>
+            <!-- Earnings (Monthly) Card Example -->
+            <div class=" card border-left-primary shadow h-10 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters ">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-violet text-uppercase mb-1">Pourcentage d'autoconsommation</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">35%</div>
+                    </div>
+                    <div class="col-auto">
+                      <img src="img/barchart2.svg"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            <!-- Earnings (Monthly) Card Example -->
+              <div class="card border-left-info shadow h-10 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-violet text-uppercase mb-1">Votre score</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">47Kwh</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <img src="img/barchart3.svg"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <!-- Consommation part -->
+      <div class="row">
+        <div class="col-xl-8 col-lg-7">
+      <!-- Bar Chart -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Votre consommation</h6>
+            </div>
+            <div class="card-body">
+              <div class="chart-bar">
+                <canvas id="myBarChart"></canvas>
+              </div>
+              <hr>
+              Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.
+            </div>
+        </div>
+        </div>
+        <div class="col-xl-3">
+            <div class="card shadow mb-4 justify-content-end">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-violet">Nos conseils</h6>
+                </div>
+                <div class="card-body">
+                  <ul>
+                    <li>Pensez à éteindre vos multiprises</li>
+                    <li>Programmez vos lessives pendant les heures de forte production</li>
+                  </ul>
+                  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary" style="position: relative; left: 50%; transform: translateX(-50%);"> Ajouter un conseil</a>
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 40px;">Badges</div>
+      <!-- Badges part -->
+      <div class="row">
+          <div class="col-md-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters ">
+                      <div class="col-auto mr-2">
+                          <i class="fas fa-award fa-5x" style="color:#3CC480"></i>
+                      </div>
+                      <div class="col">
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">Quid enim tam absurdum quam delectari multis inanimis rebus, ut honore, ut gloria, ut aedificio, ut vestitu cultuque corporis, animante virtute </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters ">
+                      <div class="col-auto mr-2">
+                          <i class="fas fa-award fa-5x" style="color:#3CC480"></i>
+                      </div>
+                      <div class="col">
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">Quid enim tam absurdum quam delectari multis inanimis rebus, ut honore, ut gloria, ut aedificio, ut vestitu cultuque corporis, animante virtute </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters ">
+                      <div class="col-auto mr-2">
+                          <i class="fas fa-award fa-5x" style="color:#3CC480"></i>
+                      </div>
+                      <div class="col">
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">Quid enim tam absurdum quam delectari multis inanimis rebus, ut honore, ut gloria, ut aedificio, ut vestitu cultuque corporis, animante virtute </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+
+      <div class="row" style="margin-top: 40px;">
+          <div class="col-md-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters ">
+                      <div class="col-auto mr-2">
+                          <i class="fas fa-award fa-5x" style="color:#3CC480"></i>
+                      </div>
+                      <div class="col">
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">Quid enim tam absurdum quam delectari multis inanimis rebus, ut honore, ut gloria, ut aedificio, ut vestitu cultuque corporis, animante virtute </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters ">
+                      <div class="col-auto mr-2">
+                          <i class="fas fa-award fa-5x" style="color:#3CC480"></i>
+                      </div>
+                      <div class="col">
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">Quid enim tam absurdum quam delectari multis inanimis rebus, ut honore, ut gloria, ut aedificio, ut vestitu cultuque corporis, animante virtute </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters ">
+                      <div class="col-auto mr-2">
+                          <i class="fas fa-award fa-5x" style="color:#3CC480"></i>
+                      </div>
+                      <div class="col">
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">Quid enim tam absurdum quam delectari multis inanimis rebus, ut honore, ut gloria, ut aedificio, ut vestitu cultuque corporis, animante virtute </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Sunshare X IMIE 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Se déconnecter ?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Cliquer sur "Se déconnecter" si vous êtes sûr de vouloir quitter.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+          <a class="btn btn-primary" href="login.html">Se déconnecter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="js/custom.js"></script>
+
+</body>
+
+</html>
